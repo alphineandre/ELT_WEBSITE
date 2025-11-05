@@ -1,0 +1,102 @@
+<!-- references.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>References</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+<nav class="navbar">
+  <h1 class="logo">English Learning Hub</h1>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="group-members.html">Group Members</a></li>
+    <li><a href="administration.html">Administration</a></li>
+    <li><a href="lesson-plans.html">Lesson Plans</a></li>
+    <li><a href="reflection.html">Reflection</a></li>
+    <li><a href="references.html" class="active">References</a></li>
+  </ul>
+</nav>
+</header>
+
+<section class="content">
+  <header class="content-header">
+    <h2>References (APA)</h2>
+    <p class="muted">Curated resources used to build these lessons. Use search to quickly find items or print this page.</p>
+  </header>
+
+  <div class="refs-container">
+    <div class="ref-controls">
+      <div class="ref-search">
+        <label for="ref-search" class="sr-only">Search references</label>
+        <input id="ref-search" type="search" placeholder="Search references, authors, year..." aria-label="Search references">
+      </div>
+      <div class="ref-actions">
+        <button id="print-btn" class="btn">Print</button>
+        <div class="ref-stats">Showing <strong id="ref-count">5</strong></div>
+      </div>
+    </div>
+
+    <div class="ref-grid" id="ref-grid" aria-live="polite">
+      <article class="ref-card">
+        <p class="ref-citation">Department of Basic Education. (2011). Curriculum and Assessment Policy Statement: English First Additional Language Grades 4–6. Pretoria: DBE.</p>
+        <div class="ref-meta">DBE · 2011 · Curriculum</div>
+      </article>
+
+      <article class="ref-card">
+        <p class="ref-citation">Department of Basic Education. (2011). Curriculum and Assessment Policy Statement: English Home Language Grades 7–9. Pretoria: DBE.</p>
+        <div class="ref-meta">DBE · 2011 · Curriculum</div>
+      </article>
+
+      <article class="ref-card">
+        <p class="ref-citation">Department of Basic Education. (2023). Annual Teaching Plan: English HL Grade 9. Pretoria: DBE.</p>
+        <div class="ref-meta">DBE · 2023 · Annual Plan</div>
+      </article>
+
+      <article class="ref-card">
+        <p class="ref-citation">De Jager, L. J. (2025). Reading and Viewing Lecture Slides. Faculty of Education.</p>
+        <div class="ref-meta">De Jager · 2025 · Lecture</div>
+      </article>
+
+      <article class="ref-card">
+        <p class="ref-citation">Gardner, H. (1987). The theory of multiple intelligences. Annals of Dyslexia, 19–35.</p>
+        <div class="ref-meta">Gardner · 1987 · Theory</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<footer>
+<p>© 2025 English Learning Hub</p>
+</footer>
+
+<script defer src="../js/script.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('ref-search');
+  const cards = Array.from(document.querySelectorAll('.ref-card'));
+  const count = document.getElementById('ref-count');
+  const printBtn = document.getElementById('print-btn');
+
+  function updateCount() {
+    count.textContent = String(cards.filter(c => c.style.display !== 'none').length);
+  }
+  updateCount();
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    cards.forEach(c => {
+      const txt = c.textContent.toLowerCase();
+      c.style.display = q === '' || txt.includes(q) ? '' : 'none';
+    });
+    updateCount();
+  });
+
+  printBtn.addEventListener('click', () => window.print());
+});
+</script>
+</body>
+</html>

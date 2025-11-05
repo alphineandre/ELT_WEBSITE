@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Group Members</title>
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+<header>
+  <nav class="navbar">
+    <h1 class="logo">English Learning Hub</h1>
+    <ul class="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="group-members.html" class="active">Group Members</a></li>
+      <li><a href="administration.html">Administration</a></li>
+      <li><a href="lesson-plans.html">Lesson Plans</a></li>
+      <li><a href="reflection.html">Reflection</a></li>
+      <li><a href="references.html">References</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="content">
+  <header class="content-header">
+    <h2>Meet the Team</h2>
+    <p class="muted">A creative, dedicated group building engaging English learning resources for Grades 6–9.</p>
+  </header>
+
+  <section class="member-section">
+    <div class="member-grid" id="member-grid" aria-live="polite">
+      <!-- Member card template: update image paths in assets/images/ or use placeholders -->
+      <article class="member-card" tabindex="0"
+               data-name="Nsovo Masingi"
+               data-role="Project Lead & Website Developer"
+               data-bio="Nsovo coordinates the project and developed the website. She leads the design and implementation of all digital resources."
+               data-email="u23635844@tuks.co.za"
+               data-links='{"linkedin":"https://www.linkedin.com/in/ecstatia-masingi-421a92255/"}'>
+        <img class="member-avatar" src="../assets/images/member1.jpg" alt="Nsovo Masingi">
+        <div class="member-body">
+          <h3 class="member-name">Nsovo Masingi</h3>
+          <div class="member-role">Project Lead & Website developer</div>
+          <p class="member-excerpt">Leading the team and developing the website.</p>
+          <div class="member-tags">
+            <span class="tag">Lead</span><span class="tag">Developer</span>
+          </div>
+          <div class="member-actions">
+            <button class="btn view-profile">View profile</button>
+            <a class="btn" href="mailto:u23635844@tuks.co.za" aria-label="Email Nsovo">Email</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="member-card" tabindex="0"
+               data-name="Siniko Ntlamba"
+               data-role="Lesson Developer"
+               data-bio="Siniko develops engaging lesson content and multimedia resources."
+               data-email="u23650797@tuks.co.za"
+               data-links='{"youtube":"https://youtube.com","instagram":"https://instagram.com"}'>
+        <img class="member-avatar" src="../assets/images/member2.jpg" alt="Siniko Ntlamba">
+        <div class="member-body">
+          <h3 class="member-name">Siniko Ntlamba</h3>
+          <div class="member-role">Lesson Developer</div>
+          <p class="member-excerpt">Develops engaging lesson content and multimedia resources.</p>
+          <div class="member-tags">
+            <span class="tag">Research</span><span class="tag">Design</span>
+          </div>
+          <div class="member-actions">
+            <button class="btn view-profile">View profile</button>
+            <a class="btn" href="mailto:u23650797@tuks.co.za" aria-label="Email Siniko">Email</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="member-card" tabindex="0"
+               data-name="Hitekani Mafuyeka"
+               data-role="Assessment & Research"
+               data-bio="Hitekani analyses learner outcomes and supports evidence-based improvements. She runs small trials and collects feedback."
+               data-email="u20633859@tuks.co.za"
+               data-links='{"linkedin":"https://linkedin.com"}'>
+        <img class="member-avatar" src="../assets/images/member3.jpg" alt="Hitekani Mafuyeka">
+        <div class="member-body">
+          <h3 class="member-name">Hitekani Mafuyeka</h3>
+          <div class="member-role">Lesson plan developer and administrator</div>
+          <p class="member-excerpt">Leads assessment design and administration.</p>
+          <div class="member-tags">
+            <span class="tag">Research</span><span class="tag">Data</span>
+          </div>
+          <div class="member-actions">
+            <button class="btn view-profile">View profile</button>
+            <a class="btn" href="mailto:u20633859@tuks.co.za" aria-label="Email Hitekani">Email</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="member-card" tabindex="0"
+               data-name="Daniel Kim"
+               data-role="Frontend & UX"
+               data-bio="Daniel implements UI, improves accessibility and ensures the site works well on mobile. He focuses on inclusive design."
+               data-email="daniel@example.com"
+               data-links='{"github":"https://github.com"}'>
+        <img class="member-avatar" src="../assets/images/member4.jpg" alt="Daniel Kim">
+        <div class="member-body">
+          <h3 class="member-name">Daniel Kim</h3>
+          <div class="member-role">Frontend & UX</div>
+          <p class="member-excerpt">Builds UI and improves accessibility across the site.</p>
+          <div class="member-tags">
+            <span class="tag">UX</span><span class="tag">Accessibility</span>
+          </div>
+          <div class="member-actions">
+            <button class="btn view-profile">View profile</button>
+            <a class="btn" href="mailto:daniel@example.com" aria-label="Email Daniel">Email</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<!-- Modal for profile detail -->
+<div id="member-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-name" aria-modal="true">
+  <div class="modal-panel" role="document">
+    <button class="modal-close" aria-label="Close profile">&times;</button>
+    <div class="modal-content">
+      <img id="modal-avatar" class="modal-avatar" src="" alt="">
+      <div class="modal-info">
+        <h3 id="modal-name"></h3>
+        <div id="modal-role" class="member-role"></div>
+        <p id="modal-bio" class="member-bio"></p>
+        <div id="modal-links" class="social-links"></div>
+        <a id="modal-email" class="btn" href="">Email</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 English Learning Hub</p>
+</footer>
+
+<script defer src="../js/script.js"></script>
+</body>
+</html>
