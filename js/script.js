@@ -329,6 +329,41 @@ elements.forEach(el => observer.observe(el));
 
   sections.forEach(s => io.observe(s));
 })();
+
+(function(){
+  const toggle = document.querySelector('.nav-toggle');
+  const navMenu = document.getElementById('nav-menu');
+  if (!toggle || !navMenu) return;
+
+  function setOpen(open) {
+    document.body.classList.toggle('nav-open', open);
+    toggle.setAttribute('aria-expanded', String(Boolean(open)));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    setOpen(!document.body.classList.contains('nav-open'));
+  });
+
+  // close when a nav link is clicked (mobile)
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => setOpen(false));
+  });
+
+  // close on ESC or click outside menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.body.classList.contains('nav-open')) setOpen(false);
+  });
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.navbar') && document.body.classList.contains('nav-open')) setOpen(false);
+  });
+
+  // ensure menu is closed when resizing to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && document.body.classList.contains('nav-open')) setOpen(false);
+  });
+})();
   
   // CSS fade-in class addition (add this in style.css):
   // .fade-in { opacity: 1; transform: translateY(0); transition: all 0.6s ease-in; }

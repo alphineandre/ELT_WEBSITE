@@ -2,50 +2,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Group Reflection</title>
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
 <header>
-<nav class="navbar">
-<h1 class="logo">English Learning Hub</h1>
-<ul class="nav-links">
-<li><a href="../index.html">Home</a></li>
-<li><a href="group-members.html">Group Members</a></li>
-<li><a href="administration.html">Administration</a></li>
-<li><a href="lesson-plans.html">Lesson Plans</a></li>
-<li><a href="reflection.html" class="active">Reflection</a></li>
-<li><a href="references.html">References</a></li>
-</ul>
-</nav>
+  <nav class="navbar">
+    <div class="nav-left">
+      <h1 class="logo">English Learning Hub</h1>
+      <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div id="nav-menu" class="nav-menu">
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="group-members.html">Group Members</a></li>
+        <li><a href="administration.html">Administration</a></li>
+        <li><a href="lesson-plans.html">Lesson Plans</a></li>
+        <li><a href="reflection.html" class="active">Reflection</a></li>
+        <li><a href="references.html">References</a></li>
+      </ul>
+    </div>
+  </nav>
 </header>
 
+<main class="content">
+  <header class="content-header">
+    <h2>Group Reflection</h2>
+    <p class="muted">A short collective reflection and individual notes on what worked, what needs improvement and next steps.</p>
+  </header>
 
-<section class="content">
-<h2>Reflection</h2>
+  <section class="reflection-hero card">
+    <div class="hero-left">
+      <h3>Group overview</h3>
+      <p class="muted">We collaborated across roles to design interactive, learner-centred lesson plans and resources. Below are a concise group reflection and each member's individual notes.</p>
+      <div class="reflection-actions" style="margin-top:.6rem;">
+        <button class="btn" id="print-reflection">Print / Export</button>
+        <button class="btn" id="expand-all">Expand all</button>
+        <button class="btn" id="collapse-all">Collapse all</button>
+      </div>
+    </div>
+    <blockquote class="reflection-quote">"Working together strengthened both our design choices and our ability to use digital tools for engaging lessons."</blockquote>
+  </section>
 
+  <section class="reflection-grid" aria-label="Reflections">
+    <article class="reflection-card">
+      <header class="card-top">
+        <h3>Group Reflection (100 words)</h3>
+      </header>
+      <div class="card-content">
+        <p>Our group collaborated effectively by combining diverse ideas and skills. We learned how to integrate digital tools to make English learning interactive and fun. The project improved our understanding of technology-enhanced teaching and strengthened our teamwork abilities. We will improve planning time and technical rehearsals next time to avoid last-minute issues and better support learners who need extra vocabulary scaffolding.</p>
+      </div>
+    </article>
 
-<h3>Group Reflection (100 words)</h3>
-<p>Our group collaborated effectively by combining diverse ideas and skills. We learned how to integrate digital tools to make English learning interactive and fun. The project improved our understanding of technology-enhanced teaching and strengthened our teamwork abilities.</p>
+    <div class="individuals">
+      <h3 style="width:100%;">Individual Reflections</h3>
 
+      <details class="member-ref" open>
+        <summary><strong>Nsovo Masingi</strong> — Project Lead & Website developer</summary>
+        <div class="member-ref-body">
+          <p><strong>What went well:</strong> The group effectively shared resources and ideas, enhancing the overall project quality.</p>
+          <p><strong>Needs improvement:</strong> Time management during discussions could be better.</p>
+          <p><strong>Next step:</strong> Implement a timed agenda for future meetings to stay on track.</p>
+        </div>
+      </details>
 
-<h3>Individual Reflections</h3>
-<ul>
-<li><strong>Member 1:</strong> Reflect on challenges and learning experiences (100 words).</li>
-<li><strong>Member 2:</strong> Reflect on collaboration and professional growth (100 words).</li>
-<li><strong>Member 3:</strong> Reflect on problem-solving and teamwork (100 words).</li>
-<li><strong>Member 4:</strong> Reflect on creativity and digital design skills (100 words).</li>
-</ul>
-</section>
+      <details class="member-ref">
+        <summary><strong>Siniko Ntlamba</strong> — Lesson Developer</summary>
+        <div class="member-ref-body">
+          <p><strong>What went well:</strong> Learners enjoyed the writing assignment and showed good engagement with the reading.</p>
+          <p><strong>Needs improvement:</strong> Some learners required more vocabulary assistance.</p>
+          <p><strong>Next step:</strong> Introduce a speaking and listening exercise on the same subject for the following lesson (e.g., group discussion about favourite healthy meals).</p>
+        </div>
+      </details>
 
+      <details class="member-ref">
+        <summary><strong>Hitekani Mafuyeka</strong> — Lesson plan developer and administrator</summary>
+        <div class="member-ref-body">
+          <p><strong>What went well:</strong> The use of digital tools facilitated collaboration and made the learning process more engaging.</p>
+          <p><strong>Needs improvement:</strong> Some technical issues arose during the presentation.</p>
+          <p><strong>Next step:</strong> Conduct a tech check before future presentations to avoid disruptions.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+</main>
 
 <footer>
-<p>© 2025 English Learning Hub</p>
+  <p>© 2025 English Learning Hub</p>
 </footer>
 
 <script defer src="../js/script.js"></script>
+<script>
+/* small page helpers: print + expand/collapse all */
+document.addEventListener('DOMContentLoaded', () => {
+  const printBtn = document.getElementById('print-reflection');
+  const expand = document.getElementById('expand-all');
+  const collapse = document.getElementById('collapse-all');
+  const details = Array.from(document.querySelectorAll('.member-ref'));
 
+  if (printBtn) printBtn.addEventListener('click', () => window.print());
+  if (expand) expand.addEventListener('click', () => details.forEach(d => d.open = true));
+  if (collapse) collapse.addEventListener('click', () => details.forEach(d => d.open = false));
+});
+</script>
 </body>
 </html>

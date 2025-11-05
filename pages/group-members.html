@@ -9,15 +9,23 @@
 <body>
 <header>
   <nav class="navbar">
-    <h1 class="logo">English Learning Hub</h1>
-    <ul class="nav-links">
-      <li><a href="../index.html">Home</a></li>
-      <li><a href="group-members.html" class="active">Group Members</a></li>
-      <li><a href="administration.html">Administration</a></li>
-      <li><a href="lesson-plans.html">Lesson Plans</a></li>
-      <li><a href="reflection.html">Reflection</a></li>
-      <li><a href="references.html">References</a></li>
-    </ul>
+    <div class="nav-left">
+      <h1 class="logo">English Learning Hub</h1>
+      <button class="nav-toggle" aria-controls="nav-menu" aria-expanded="false" aria-label="Open menu">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+    </div>
+
+    <div id="nav-menu" class="nav-menu">
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="group-members.html" class="active">Group Members</a></li>
+        <li><a href="administration.html">Administration</a></li>
+        <li><a href="lesson-plans.html">Lesson Plans</a></li>
+        <li><a href="reflection.html">Reflection</a></li>
+        <li><a href="references.html">References</a></li>
+      </ul>
+    </div>
   </nav>
 </header>
 
@@ -93,26 +101,6 @@
         </div>
       </article>
 
-      <article class="member-card" tabindex="0"
-               data-name="Daniel Kim"
-               data-role="Frontend & UX"
-               data-bio="Daniel implements UI, improves accessibility and ensures the site works well on mobile. He focuses on inclusive design."
-               data-email="daniel@example.com"
-               data-links='{"github":"https://github.com"}'>
-        <img class="member-avatar" src="../assets/images/member4.jpg" alt="Daniel Kim">
-        <div class="member-body">
-          <h3 class="member-name">Daniel Kim</h3>
-          <div class="member-role">Frontend & UX</div>
-          <p class="member-excerpt">Builds UI and improves accessibility across the site.</p>
-          <div class="member-tags">
-            <span class="tag">UX</span><span class="tag">Accessibility</span>
-          </div>
-          <div class="member-actions">
-            <button class="btn view-profile">View profile</button>
-            <a class="btn" href="mailto:daniel@example.com" aria-label="Email Daniel">Email</a>
-          </div>
-        </div>
-      </article>
     </div>
   </section>
 </main>
